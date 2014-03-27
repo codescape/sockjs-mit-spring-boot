@@ -26,7 +26,7 @@
     </dependencies>
 
     <properties>
-        <start-class>hello.Application</start-class>
+        <start-class>de.codescape.Application</start-class>
         <java.version>1.7</java.version>
     </properties>
 
