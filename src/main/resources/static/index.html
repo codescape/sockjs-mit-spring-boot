@@ -35,6 +35,7 @@
         function sendMessage() {
             var name = document.getElementById('name').value;
             var message = document.getElementById('message').value;
+            document.getElementById('message').value = '';
             stompClient.send("/app/hello", {}, JSON.stringify({ 'name': name, 'message': message }));
         }
 
@@ -43,21 +44,19 @@
             var p = document.createElement('p');
             p.style.wordWrap = 'break-word';
             p.appendChild(document.createTextNode(result.name));
-            p.appendChild(document.createTextNode(" : "));
+            p.appendChild(document.createTextNode(': '));
             p.appendChild(document.createTextNode(result.message));
             response.appendChild(p);
         }
     </script>
 </head>
 <body>
-<noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being enabled. Please enable
-    Javascript and reload this page!</h2></noscript>
 <div>
     <div>
         <button id="connect" onclick="connect();">Connect</button>
         <button id="disconnect" disabled="disabled" onclick="disconnect();">Disconnect</button>
     </div>
-    <div id="conversationDiv">
+    <div id="conversationDiv" style="visibility: hidden">
         <label>Username</label><input type="text" id="name" />
         <label>Message</label><input type="text" id="message" />
         <button id="sendMessage" onclick="sendMessage();">Send</button>
