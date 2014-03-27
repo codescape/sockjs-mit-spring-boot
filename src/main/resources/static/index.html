@@ -43,6 +43,8 @@
             var response = document.getElementById('response');
             var p = document.createElement('p');
             p.style.wordWrap = 'break-word';
+            p.appendChild(document.createTextNode(result.date));
+            p.appendChild(document.createTextNode(' '));
             p.appendChild(document.createTextNode(result.name));
             p.appendChild(document.createTextNode(': '));
             p.appendChild(document.createTextNode(result.message));
